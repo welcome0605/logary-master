@@ -211,21 +211,14 @@ export default function Targets() {
             <p>It's up to each target to deal with Acks in its own way, but a 'best-practices' Ack implementation can be seen in the RabbitMQ target. It's a best-practices Ack implementation because RabbitMQ supports publisher confirms (that serve as Acks), asynchronous publish and also durable messaging.</p>
           <h5>How do Promises work with C#?</h5>
             <p>The C# signature of the above functions is as follows:</p>
-            <Code language="cs" value={
+            <Code language="fsharp" value={
               preval`
               const fs = require('fs')
-              const val = fs.readFileSync(__dirname + '/../../examples/FAQs/Doc2.cs', 'utf8')
+              const val = 'let mhz = Div(Scaled(Hz, 1e-6)) in Gauge(Fraction (1300, 36800), Div(mhz, mhz))'
               module.exports = val
               `
             } />
             <p>and can be used like so:</p>
-            <Code language="cs" value={
-              preval`
-              const fs = require('fs')
-              const val = fs.readFileSync(__dirname + '/../../examples/FAQs/Doc3.cs', 'utf8')
-              module.exports = val
-              `
-            } />
       </DocSection>
     </DocPage>
   )

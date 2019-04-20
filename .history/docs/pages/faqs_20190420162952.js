@@ -219,13 +219,6 @@ export default function Targets() {
               `
             } />
             <p>and can be used like so:</p>
-            <Code language="cs" value={
-              preval`
-              const fs = require('fs')
-              const val = fs.readFileSync(__dirname + '/../../examples/FAQs/Doc3.cs', 'utf8')
-              module.exports = val
-              `
-            } />
       </DocSection>
     </DocPage>
   )

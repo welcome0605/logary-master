@@ -206,26 +206,6 @@ export default function Targets() {
           <p>But then, what about the call to log? Behind the scenes it calls lockWithAck and tries to commit to the returned Alt [Promise [unit]] (the outer Alt, that is). If the RingBuffer is full then this Alt cannot be committed to, so there's code that drops the log message after 5000 ms.</p>
           <p>Hence; logSimple tries its best to log your message but if you app crashes directly after calling logSimple or your Logstash or other target infrastructure is down, you cannot be sure everything is logged. The decision was made that it's more important that your app keeps running than that all targets you have configured successfully log your Messages.</p>
           <h5>logWithAck – so what's up with Promise?</h5>
-            <p>The outer Alt ensures that the Message has been placed in all configured targets' RingBuffers.</p>
-            <p>The inner Promise that the Message has successfully been written from all Targets that received it. It ensures that your logging infrastructure has received the message.</p>
-            <p>It's up to each target to deal with Acks in its own way, but a 'best-practices' Ack implementation can be seen in the RabbitMQ target. It's a best-practices Ack implementation because RabbitMQ supports publisher confirms (that serve as Acks), asynchronous publish and also durable messaging.</p>
-          <h5>How do Promises work with C#?</h5>
-            <p>The C# signature of the above functions is as follows:</p>
-            <Code language="cs" value={
-              preval`
-              const fs = require('fs')
-              const val = fs.readFileSync(__dirname + '/../../examples/FAQs/Doc2.cs', 'utf8')
-              module.exports = val
-              `
-            } />
-            <p>and can be used like so:</p>
-            <Code language="cs" value={
-              preval`
-              const fs = require('fs')
-              const val = fs.readFileSync(__dirname + '/../../examples/FAQs/Doc3.cs', 'utf8')
-              module.exports = val
-              `
-            } />
       </DocSection>
     </DocPage>
   )

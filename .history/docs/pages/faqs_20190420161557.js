@@ -8,6 +8,7 @@ import Code from '../components/Code'
 var low = require('lowlight')
 var tree = low.highlight('js', '"use strict";').value
 
+console.log(tree)
 // import stn from '../../images/SinkTargetNames.png'
 
 
@@ -169,63 +170,7 @@ export default function Targets() {
             } />
 
         <h3>Getting MissingMethodException from Hopac.Core</h3>
-          <p>Inspect the version specified in the <a href="https://www.nuget.org/packages/Logary/"> Logary package </a> and ensure that you have that exact version installed. Hopac is currently pre-v1 so it is often doing breaking changes between versions.</p>
-        
-        <h3>Is v5.0.x a stable version?</h3>
-          <p>It's stable to run. The API is alpha.</p>
-        
-        <h3>Isn't v4.0.x supposed to be API-stable?</h3>
-          <p>We're not doing pre-release versions because they make it impossible for other packages to be released as stable versions. But we need to work through Logary in production; as such you can imagine that qvitoo is taking the risk and cost of making v4.0 RTM as stable and reliable as can be.</p>
-
-        <h3>Why does Logary depend on FParsec?</h3>
-          <p>For tow reasons;</p>
-          <ol type="1">
-            <li>we use Chiron for json formatting which depend on FParsec</li>
-            <li>Aether is vendored in Logary.Utils.Aether and depend on it.</li>
-          </ol>
-          <p>We previously depended on Newtonsoft.Json, but that library is often depended on from other packages and we want Logary to be as free of dependencies as possible, in order to make it as stable as possible.</p>
-        
-        <h3>Why do you depend on Hopac?</h3>
-          <p>Hopac supports a few things that async doesn't:</p>
-          <ol type="1">
-            <li>Rendezvous and selective concurrency primitives (select A or B)</li>
-            <li>Negative ACKs instead of CancellationToken-s</li>
-          </ol>
-          <p>We also wanted support for synchronous rendezvous between channels/job/alts/promises/etc. This still supports asynchronous operations towards the outside. Together it makes for an excellent choice for cooperating 'agents', like the Registry and Supervisor and Target Instance that we have in the library.</p>
-          <p>Besides the technical upsides, it's a good thing there's a book written about the concurrency model that Hopac implements – <a href="https://www.amazon.com/Concurrent-Programming-ML-John-Reppy/dp/0521714729/"> Concurrent Programming in ML </a> which lets us get developers up to speed quickly.</p>
-          <p>Finally, our unit tests sped up 30x when porting from Async. The performance boost is a nice feature of a logging framework and comes primarily from less GC collection and the 'hand off' between synchronising concurrency primitives being synchronously scheduled inside Hopac rather than implemented using Thread/Semaphore/Monitor primitives on top of the ThreadPool.</p>
-        
-        <h3>How do I use Hopac from C#?</h3>
-          <p>You're better off following the examples in C# and using the Task-wrapped public APIs than going spelunking into the dire straits of Hopac and F#.</p>
-          <p>Just pull in Logary.CSharp to make this happen. You'll also have to open the Logary namespace.</p>
-
-        <h3>What's logVerboseWithAck, logWithAck and how does it differ from logSimple?</h3>
-          <p>To start with, if you're new to Logary, you can use logSimple and it will work like most other logging frameworks. So what are those semantics exactly?</p>
-          <p>Logary runs its targets concurrently. When you log a Message, all targets whose Rules make it relevant for your Message, receives the Message, each target tries to send that Message to its, well, target.</p>
-          <p>Because running out of memory generally is unwanted, each target has a <a href="https://github.com/logary/RingBuffer"> RingBuffer </a> that <a href="https://github.com/logary/logary/blob/4987c421849464d23b61ea4b64f8e48a6df21f12/src/Logary/Internals_Logger.fs#L13-L21"> the messages are put into </a> when you use the Logger. Unless all targets' RingBuffer accept the Message, the call to log doesn't complete. This is similar to how other logging frameworks work.</p>
-          <p>But then, what about the call to log? Behind the scenes it calls lockWithAck and tries to commit to the returned Alt [Promise [unit]] (the outer Alt, that is). If the RingBuffer is full then this Alt cannot be committed to, so there's code that drops the log message after 5000 ms.</p>
-          <p>Hence; logSimple tries its best to log your message but if you app crashes directly after calling logSimple or your Logstash or other target infrastructure is down, you cannot be sure everything is logged. The decision was made that it's more important that your app keeps running than that all targets you have configured successfully log your Messages.</p>
-          <h5>logWithAck – so what's up with Promise?</h5>
-            <p>The outer Alt ensures that the Message has been placed in all configured targets' RingBuffers.</p>
-            <p>The inner Promise that the Message has successfully been written from all Targets that received it. It ensures that your logging infrastructure has received the message.</p>
-            <p>It's up to each target to deal with Acks in its own way, but a 'best-practices' Ack implementation can be seen in the RabbitMQ target. It's a best-practices Ack implementation because RabbitMQ supports publisher confirms (that serve as Acks), asynchronous publish and also durable messaging.</p>
-          <h5>How do Promises work with C#?</h5>
-            <p>The C# signature of the above functions is as follows:</p>
-            <Code language="cs" value={
-              preval`
-              const fs = require('fs')
-              const val = fs.readFileSync(__dirname + '/../../examples/FAQs/Doc2.cs', 'utf8')
-              module.exports = val
-              `
-            } />
-            <p>and can be used like so:</p>
-            <Code language="cs" value={
-              preval`
-              const fs = require('fs')
-              const val = fs.readFileSync(__dirname + '/../../examples/FAQs/Doc3.cs', 'utf8')
-              module.exports = val
-              `
-            } />
+        <p>Inspect the version specified in the <a href="https://www.nuget.org/packages/Logary/"> Logary package </a> and ensure that you have that exact version installed. Hopac is currently pre-v1 so it is often doing breaking changes between versions.</p>
       </DocSection>
     </DocPage>
   )
