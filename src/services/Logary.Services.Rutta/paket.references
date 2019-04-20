@@ -1,0 +1,9 @@
+FSharp.Core
+NodaTime
+Hopac
+Topshelf
+fszmq
+FsPickler
+Argu
+Suave
+System.Data.Odbc

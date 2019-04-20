@@ -1,0 +1,49 @@
+{
+  "name": "logary-docs",
+  "version": "1.0.0",
+  "description": "Logary site with next.js",
+  "main": "index.js",
+  "repository": "https://github.com/logary/logary",
+  "author": "Henrik Feldt",
+  "license": "GPL-3.0-only",
+  "private": false,
+  "dependencies": {
+    "@fortawesome/fontawesome-pro": "^5.8.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.17",
+    "@fortawesome/free-brands-svg-icons": "^5.8.1",
+    "@fortawesome/pro-light-svg-icons": "^5.8.1",
+    "@fortawesome/pro-regular-svg-icons": "^5.8.1",
+    "@fortawesome/pro-solid-svg-icons": "^5.8.1",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "@zeit/next-css": "^1.0.1",
+    "@zeit/next-sass": "^1.0.1",
+    "babel-plugin-macros": "^2.5.1",
+    "babel-plugin-preval": "^3.0.1",
+    "body-parser": "^1.18.3",
+    "bootstrap": "^4.3.1",
+    "classnames": "^2.2.6",
+    "highlight.js": "^9.15.6",
+    "logary": "^5.0.2",
+    "lunr": "^2.3.6",
+    "next": "^8.0.4",
+    "next-images": "^1.1.1",
+    "node-sass": "^4.11.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-input-range": "^1.3.0",
+    "react-lowlight": "^2.0.0",
+    "react-lunr": "^0.6.0",
+    "react-scroll-to": "^2.0.5",
+    "react-stripe-elements": "^2.0.3",
+    "reactstrap": "^8.0.0",
+    "stripe": "^6.28.0"
+  },
+  "devDependencies": {
+    "express": "^4.16.4"
+  },
+  "scripts": {
+    "dev": "STRIPE_SECRET_KEY=sk_test_wKhdTXjsPFI1YcISwxzXx3EP node server.js",
+    "build": "next build",
+    "start": "node server.js "
+  }
+}

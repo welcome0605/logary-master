@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Logary.Targets.RabbitMQ.Tests</AssemblyName>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworks>netcoreapp2.2</TargetFrameworks>
+    <DebugSymbols>true</DebugSymbols>
+    <Tailcalls>true</Tailcalls>
+    <GenerateTailCalls>true</GenerateTailCalls>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <ServerGarbageCollection>true</ServerGarbageCollection>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Program.fs" />
+    <ProjectReference Include="../../Logary/Logary.fsproj" />
+    <ProjectReference Include="../../targets/Logary.Targets.RabbitMQ/Logary.Targets.RabbitMQ.fsproj" />
+  </ItemGroup>
+  <Import Project="..\..\..\.paket\Paket.Restore.targets" />
+</Project>
