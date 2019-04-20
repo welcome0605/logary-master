@@ -9,6 +9,6 @@ module.exports = {
   '/logary-rutta': '/rutta',
   '/tutorials/how-does-logary-work': '/tutorials/how',
   '/faqs': '/other/faqs',
-  '/license': '/other/license',
-  '/pricing': '/other/pricing'
+  '/license': 'other/license',
+  '/pricing': 'other/pricing'
 }

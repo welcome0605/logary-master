@@ -8,7 +8,5 @@ module.exports = {
   '/logary-js-documentation': '/js/docs',
   '/logary-rutta': '/rutta',
   '/tutorials/how-does-logary-work': '/tutorials/how',
-  '/faqs': '/other/faqs',
-  '/license': '/other/license',
-  '/pricing': '/other/pricing'
+  '/faqs': '/other/faq,js'
 }
