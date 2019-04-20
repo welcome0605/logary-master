@@ -138,11 +138,6 @@ export default function Tutorials() {
             <a href="https://github.com/logary/logary/blob/master/src/targets/Logary.Targets.Logstash/Targets_Logstash.fs">Logstash Target</a> for an example.</li>
           </ul>
         <h5>Publishing your target</h5>
-        <p>When your Target is finished, either ping <a href="https://github.com/haf">@haf</a> on
-          github, <a href="https://twitter.com/henrikfeldt" rel="nofollow">@henrikfeldt</a> on twitter, or send a PR
-          to this README with your implementation documented. I can assist in
-          proof-reading your code, to ensure that it follows the empirical lessons learnt
-          operating huge systems with Logary.</p>
       </DocSection>
     </DocPage>
   )

@@ -103,14 +103,14 @@ export default function Tutorials() {
             of a REST API should be handled inside the Target.</li>
             <li>Don't do blocking calls;
             <ul>
-            <li>Convert <code>Task&lt;_&gt;</code> and <code>Async&lt;_&gt;</code> to <code>Job&lt;_&gt;</code> by using the Hopac 
+            <li>Convert <code>Task&lt;_&gt;</code> and <code>Async&lt;_&gt;</code> to <code>Job&lt;_&gt;</code> by using the Hopac
             <a href="https://hopac.github.io/Hopac/Hopac.html#def:val%20Hopac.Job.fromAsync" rel="nofollow">conversion methods</a></li>
             <li>If you need to block, use <a href="https://hopac.github.io/Hopac/Hopac.html#def:val%20Hopac.Job.Scheduler.isolate" rel="nofollow">Scheduler.isolate</a> so that your
             blocking call doesn't stop all Targets.</li>
             </ul>
             </li>
             <li>Choose whether to create a target that can re-send crashing messages by
-            choosing between <code>TargetUtils.[willAwareNamedTarget, stdNamedTarget]</code></li>
+            choosing between <code>TargetUtils.{willAwareNamedTarget, stdNamedTarget}</code></li>
             <li>You can choose between consuming Messages one-by-one through
             <a href="https://github.com/logary/RingBuffer"><code>RingBuffer.take</code></a> or in batches with <code>RingBuffer.takeBatch</code></li>
             <li>If you take a batch and the network call to send it off fails, consider
@@ -136,13 +136,7 @@ export default function Tutorials() {
             and <code>Logary.Utils.Aether</code>, which are vendored copies of
             <a href="https://github.com/xyncro/chiron">Chiron</a> and <a href="https://github.com/xyncro/aether">Aether</a>. Have a look at the
             <a href="https://github.com/logary/logary/blob/master/src/targets/Logary.Targets.Logstash/Targets_Logstash.fs">Logstash Target</a> for an example.</li>
-          </ul>
-        <h5>Publishing your target</h5>
-        <p>When your Target is finished, either ping <a href="https://github.com/haf">@haf</a> on
-          github, <a href="https://twitter.com/henrikfeldt" rel="nofollow">@henrikfeldt</a> on twitter, or send a PR
-          to this README with your implementation documented. I can assist in
-          proof-reading your code, to ensure that it follows the empirical lessons learnt
-          operating huge systems with Logary.</p>
+            </ul>
       </DocSection>
     </DocPage>
   )

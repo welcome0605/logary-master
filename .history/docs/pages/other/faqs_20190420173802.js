@@ -13,7 +13,7 @@ var tree = low.highlight('js', '"use strict";').value
 
 
 
-export default function FAQs() {
+export default function Faqs() {
 
   const toc =
   [ 

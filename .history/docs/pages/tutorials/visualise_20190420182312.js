@@ -75,74 +75,7 @@ export default function Tutorials() {
       </DocSection>
       <DocSection {...toc[6]}>
         <h2 className="section-title">To start the job or not?</h2>
-        <p></p>
-        <p>A module function like <span className="_code"> MyModule.create : Conf -> Job[T] </span> should not start the server loop. Instead, just return a cold job (that can be started multiple time) and let the composition "root", such as the <span className="_code"> Registry </span>, perform the composition and lifetime handling.</p>
-      </DocSection>
-      <DocSection {...toc[7]}>
-        <h2 className="section-title">Writing a new target</h2>
-        <p>Are you thinking of creating a new Target for Logary? It's a good idea if you can't find the right Target for your use case. It can also be useful if you have an internal metrics or log message engine in your company you wish to ship to.</p>
-        <ol type="1">
-          <li>Create a new .net 4.5.1 class library in F#, under target and add that to Logary.sln.</li>
-          <li>Copy the code from Logary's Targets/Noop.fs, which contains the basic structure. There are more docs in this file, to a file named MyTarget.fs in your new project.</li>
-          <li>Add a nuget reference (or project reference if you're intending to send a PR) to Logary</li>
-          <li>Write your Target and your Target's tests to ensure that it works</li>
-        </ol>
-        <ul>
-          <li>Remember to test when the call to your server throws exceptions or fails</li>
-          <li>You should use <a href="https://github.com/haf/Http.fs"> Http.fs </a> as the HTTP client if it's a HTTP target</li>
-        </ul>
-
-        <h5>Target guidelines</h5>
-          <p>When writing the Target, it's useful to keep these guidelines in mind.</p>
-          <ul>
-            <li>It should be able to handle shutdown messages from the shutdown channel</li>
-            <li>It should not handle 'unexpected' exceptions, like network loss or a full
-            disk by itself, but instead crash with an exception – the Logary supervisor
-            will restart it after a short duration.</li>
-            <li>Things that are part of the target API, like different response status codes
-            of a REST API should be handled inside the Target.</li>
-            <li>Don't do blocking calls;
-            <ul>
-            <li>Convert <code>Task&lt;_&gt;</code> and <code>Async&lt;_&gt;</code> to <code>Job&lt;_&gt;</code> by using the Hopac 
-            <a href="https://hopac.github.io/Hopac/Hopac.html#def:val%20Hopac.Job.fromAsync" rel="nofollow">conversion methods</a></li>
-            <li>If you need to block, use <a href="https://hopac.github.io/Hopac/Hopac.html#def:val%20Hopac.Job.Scheduler.isolate" rel="nofollow">Scheduler.isolate</a> so that your
-            blocking call doesn't stop all Targets.</li>
-            </ul>
-            </li>
-            <li>Choose whether to create a target that can re-send crashing messages by
-            choosing between <code>TargetUtils.[willAwareNamedTarget, stdNamedTarget]</code></li>
-            <li>You can choose between consuming Messages one-by-one through
-            <a href="https://github.com/logary/RingBuffer"><code>RingBuffer.take</code></a> or in batches with <code>RingBuffer.takeBatch</code></li>
-            <li>If you take a batch and the network call to send it off fails, consider
-            sending the batch to the <code>willChannel</code> and throw an exception. Your target
-            will be re-instantiated with the batch and you can now send the messages
-            one-by-one to your target, throwing away poison messages (things that always
-            crash).</li>
-            <li>If your target throws an exception, the batch of Messages or the Message
-            you've taken from the <code>RingBuffer</code> will be gone, unless you send it to the
-            <em>will</em> channel.</li>
-            <li>Exiting the loop will cause your Target to shut down. So don't catch
-            <em>all</em> exceptions without recursing afterwards. The supervisor does <em>not</em>
-            restart targets that exit on their own.</li>
-            <li>If your target can understand a service name, then you should always add the
-            service name from <code>RuntimeInfo.serviceName</code> as passed to your loop function.</li>
-            <li>The <code>RuntimeInfo</code> contains a simple internal logger that you can assume
-            always will accept your Messages. It allows you to debug and log exceptions
-            from your target. By default it will write output to the STDOUT stream.</li>
-            <li>If you don't implement the last-will functionality, a caller that awaits the
-            Promise in <code>Alt&lt;Promise&lt;unit&gt;&gt;</code> as returned from <code>logWithAck</code>, will block
-            forever if your target ever crashes.</li>
-            <li>If you need to do JSON serialisation, consider using <code>Logary.Utils.Chiron</code>
-            and <code>Logary.Utils.Aether</code>, which are vendored copies of
-            <a href="https://github.com/xyncro/chiron">Chiron</a> and <a href="https://github.com/xyncro/aether">Aether</a>. Have a look at the
-            <a href="https://github.com/logary/logary/blob/master/src/targets/Logary.Targets.Logstash/Targets_Logstash.fs">Logstash Target</a> for an example.</li>
-          </ul>
-        <h5>Publishing your target</h5>
-        <p>When your Target is finished, either ping <a href="https://github.com/haf">@haf</a> on
-          github, <a href="https://twitter.com/henrikfeldt" rel="nofollow">@henrikfeldt</a> on twitter, or send a PR
-          to this README with your implementation documented. I can assist in
-          proof-reading your code, to ensure that it follows the empirical lessons learnt
-          operating huge systems with Logary.</p>
+        <p>A module function like <span className="_code"> MyModule.create : Conf -> Job[T] </span> should not start the server loop. Instead, just return a cold job (that can be started multiple time) and let the composition "root", such as the Registry, perform the composition and lifetime handling.</p>
       </DocSection>
     </DocPage>
   )
