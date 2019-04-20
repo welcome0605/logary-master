@@ -75,6 +75,18 @@ export default function Targets() {
           <br></br>
           <li>Support for zero-dependency usage through Logary.Facade</li>
           <br></br>
+          <li>Better/more extensive Rule-based hierarchies</li>
+          <br></br>
+          <li>Targets can be decoupled from the network and Ack is a first-level primitive</li>
+          <br></br>
+          <li>You get back an <span className="_code"> Alt (Promise (unit) )</span> that you can use to synchronise your calling code for when the log message is required to be durable; you can't do this with NLog or log4net</li>
+          <br></br>
+          <li>There's an object model you can use from the calling code</li>
+          <br></br>
+          <li>Logary is F#, so it's easier to keep bug-free relative to many other languages</li>
+          <br></br>
+          <li>Logary doesn't keep static state around; easy to refactor, easy to extend</li>
+          <br></br>
         </ul>
       </DocSection>
     </DocPage>
