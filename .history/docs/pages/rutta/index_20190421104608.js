@@ -91,46 +91,26 @@ export default function Rutta() {
         <p>This service can run in three modes; Shipper, Router and Proxy. Servers can be implemented using Hopac's lightweight servers. Communication is implemented using ZMQ and a binary serialisation format.</p>
         <p>Bindings look may look like this:</p>
         <ul>
-          <li><span className="_code">Shipper -> Router</span></li>
-          <li><span className="_code">Shipper -> Proxy</span></li>
-          <li><span className="_code">Proxy -> Proxy</span></li>
-          <li><span className="_code">Proxy -> Router</span></li>
+          <li><span className="_code"></span></li>
         </ul>
-        <p></p>
-        <p> <a href="http://api.zeromq.org/3-2:zmq-socket">ZMQ socket reference</a></p>
-        <p>On Windows you do <span className="_code"> ./rutta.exe -- --pub-to ... </span> - note the two extra dashes before the parameter list. This is to avoid Topshelf munching the arguments away.</p>
       </DocSection>
       <DocSection {...toc[6]}>
         <h2 className="section-title">The Shipper – from environment to Proxy or Router</h2>
         <p></p>
-        <p>Enables log shipping from hosts that are not directly connected to the router nor to InfluxDB. </p>
-        <h5>Pushing Shippers</h5>
-        <p>Shippers CONNECT PUSH sockets to the Router's PULL socket. See <a href="https://lists.zeromq.org/pipermail/zeromq-dev/2012-February/015917.html"> http://lists.zeromq.org/pipermail/zeromq-dev/2012-February/015917.html</a></p>
-        <p>During network splits, the sending <a href="http://api.zeromq.org/3-2:zmq-socket#toc14" PUSH socket blocks></a>.</p>
-        <h5>Pushing Shippers</h5>
-        <p>During network splits, the sending XPUSH socket drops messages.</p>
+        <p><pre>docker run -p 10001:10001 --rm -it haaf/rutta router --listener tcp 0.0.0.0:10001 json --target console://./</pre></p>
+        <img src={use2} className="usage"></img>
       </DocSection>
       <DocSection {...toc[7]}>
         <h2 className="section-title">The Proxy – from Shipper to Router</h2>
         <p></p>
-        <p>Proxies take inputs from Shippers or other Proxies that publish Messages using XPUB sockets:</p>
-        <p>The Proxy is run this way, by providing a XSUB socket binding and a XPUB socket binding:</p>
-        <p>During network splits, the receiving <a href="http://api.zeromq.org/3-2:zmq-socket#toc12"> XSUB socket drops messages.</a></p>
-        <p>You can then connect to the Proxy with a Router that routes it to the final Target (like InfluxDB in this example):</p>
-        <p>During network splits, the sending <a href="http://api.zeromq.org/3-2:zmq-socket#toc11"> XPUB socket drops messages.</a></p>
+        <p><pre>docker run -p 10001:10001 --rm -it haaf/rutta router --listener tcp 0.0.0.0:10001 json --target console://./</pre></p>
+        <img src={use2} className="usage"></img>
       </DocSection>
       <DocSection {...toc[8]}>
         <h2 className="section-title">The Router – from Shipper or Proxy to Target</h2>
         <p></p>
-        <p>Implements Fan-In using PULL or SUB of Messages from ZMQ. Forwards internally to a Target.</p>
-        <p>V1 only implements the InfluxDB target.</p>
-        <h5>Pulling Routers</h5>
-        <p>BINDs a PULL socket on a specified NIC/IP and PORT. Configures a single internal Target that pushes the received data.</p>
-        <p>During network splits, the listening <a href="http://api.zeromq.org/3-2:zmq-socket#toc15"> PULL socket blocks. </a></p>
-        <h5>Subscribing Routers</h5>
-        <p>BINDs a SUB socket on a specified NIC/IP and POST. Configures a single internal Target that pushes the received data.</p>
-        <p><bold> Serialisation</bold> for Rutta is done using <a href="https://nessos.github.io/FsPickler/tutorial.html#Picklers-and-Pickler-combinators"></a> FsPickler. Since FsPickler uses a binary format, it should be assumed to break for any given minor upgrade of FsPickler.</p>
-        <p>Each ZMQ message contains a Message (see DataModel.fs) in the binary form given by the serialiser chosen.</p>
+        <p><pre>docker run -p 10001:10001 --rm -it haaf/rutta router --listener tcp 0.0.0.0:10001 json --target console://./</pre></p>
+        <img src={use2} className="usage"></img>
       </DocSection>
     </DocPage>
   )

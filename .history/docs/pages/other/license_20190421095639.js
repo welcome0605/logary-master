@@ -1,7 +1,7 @@
 
 import { useRef } from 'react'
 import Head from 'next/head';
-import { faBalanceScale } from '@fortawesome/pro-light-svg-icons';
+import { faLifeRing } from '@fortawesome/pro-light-svg-icons';
 import DocPage from '../../components/DocPage'
 import DocSection from '../../components/DocSection'
 import Code from '../../components/Code'
@@ -21,7 +21,7 @@ export default function License() {
   ]
   
   return (
-    <DocPage name="all-target" title="License" faIcon={faBalanceScale} colour="orange" readingMinutes={1} toc={toc}>
+    <DocPage name="all-target" title="License" faIcon={faLifeRing} colour="green" readingMinutes={1} toc={toc}>
       <Head>
         <title key="title">License</title>
       </Head>

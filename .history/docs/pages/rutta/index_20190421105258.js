@@ -122,15 +122,8 @@ export default function Rutta() {
       <DocSection {...toc[8]}>
         <h2 className="section-title">The Router – from Shipper or Proxy to Target</h2>
         <p></p>
-        <p>Implements Fan-In using PULL or SUB of Messages from ZMQ. Forwards internally to a Target.</p>
-        <p>V1 only implements the InfluxDB target.</p>
-        <h5>Pulling Routers</h5>
-        <p>BINDs a PULL socket on a specified NIC/IP and PORT. Configures a single internal Target that pushes the received data.</p>
-        <p>During network splits, the listening <a href="http://api.zeromq.org/3-2:zmq-socket#toc15"> PULL socket blocks. </a></p>
-        <h5>Subscribing Routers</h5>
-        <p>BINDs a SUB socket on a specified NIC/IP and POST. Configures a single internal Target that pushes the received data.</p>
-        <p><bold> Serialisation</bold> for Rutta is done using <a href="https://nessos.github.io/FsPickler/tutorial.html#Picklers-and-Pickler-combinators"></a> FsPickler. Since FsPickler uses a binary format, it should be assumed to break for any given minor upgrade of FsPickler.</p>
-        <p>Each ZMQ message contains a Message (see DataModel.fs) in the binary form given by the serialiser chosen.</p>
+        <p><pre>docker run -p 10001:10001 --rm -it haaf/rutta router --listener tcp 0.0.0.0:10001 json --target console://./</pre></p>
+        <img src={use2} className="usage"></img>
       </DocSection>
     </DocPage>
   )

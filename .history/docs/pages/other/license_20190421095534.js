@@ -1,7 +1,7 @@
 
 import { useRef } from 'react'
 import Head from 'next/head';
-import { faBalanceScale } from '@fortawesome/pro-light-svg-icons';
+import { faLifeRing } from '@fortawesome/pro-light-svg-icons';
 import DocPage from '../../components/DocPage'
 import DocSection from '../../components/DocSection'
 import Code from '../../components/Code'
@@ -21,13 +21,17 @@ export default function License() {
   ]
   
   return (
-    <DocPage name="all-target" title="License" faIcon={faBalanceScale} colour="orange" readingMinutes={1} toc={toc}>
+    <DocPage name="all-target" title="FAQs" faIcon={faLifeRing} colour="green" readingMinutes={2} toc={toc}>
       <Head>
-        <title key="title">License</title>
+        <title key="title">FAQs</title>
       </Head>
       <DocSection {...toc[0]}>
-        <a href="https://github.com/logary/logary/blob/master/LICENSE.md">GPL v3, Apache 2.0 and MIT depending on library</a>
+        <h2 className="section-title">Comparison to NLog and log4net</h2>
+        <p>
+          Why Logary instead of one of the classic logging frameworks?
+        </p> 
       </DocSection>
+
     </DocPage>
   )
 }

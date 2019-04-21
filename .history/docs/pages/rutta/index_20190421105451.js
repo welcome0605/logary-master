@@ -126,11 +126,6 @@ export default function Rutta() {
         <p>V1 only implements the InfluxDB target.</p>
         <h5>Pulling Routers</h5>
         <p>BINDs a PULL socket on a specified NIC/IP and PORT. Configures a single internal Target that pushes the received data.</p>
-        <p>During network splits, the listening <a href="http://api.zeromq.org/3-2:zmq-socket#toc15"> PULL socket blocks. </a></p>
-        <h5>Subscribing Routers</h5>
-        <p>BINDs a SUB socket on a specified NIC/IP and POST. Configures a single internal Target that pushes the received data.</p>
-        <p><bold> Serialisation</bold> for Rutta is done using <a href="https://nessos.github.io/FsPickler/tutorial.html#Picklers-and-Pickler-combinators"></a> FsPickler. Since FsPickler uses a binary format, it should be assumed to break for any given minor upgrade of FsPickler.</p>
-        <p>Each ZMQ message contains a Message (see DataModel.fs) in the binary form given by the serialiser chosen.</p>
       </DocSection>
     </DocPage>
   )

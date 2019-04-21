@@ -130,7 +130,6 @@ export default function Rutta() {
         <h5>Subscribing Routers</h5>
         <p>BINDs a SUB socket on a specified NIC/IP and POST. Configures a single internal Target that pushes the received data.</p>
         <p><bold> Serialisation</bold> for Rutta is done using <a href="https://nessos.github.io/FsPickler/tutorial.html#Picklers-and-Pickler-combinators"></a> FsPickler. Since FsPickler uses a binary format, it should be assumed to break for any given minor upgrade of FsPickler.</p>
-        <p>Each ZMQ message contains a Message (see DataModel.fs) in the binary form given by the serialiser chosen.</p>
       </DocSection>
     </DocPage>
   )
