@@ -17,7 +17,7 @@ export default function Vision() {
       <DocSection {...toc[0]}>
         <h2 className="section-title">Prometheus</h2>
         <p>
-          Logary supports Prometheus. Reference <span className="_code"> Logary.Prometheus </span> and create metrics:
+          Logary supports Prometheus. Reference Logary.Prometheus and create metrics:
         </p>
         <p>TBD</p>
         <Code language="fsharp" value={

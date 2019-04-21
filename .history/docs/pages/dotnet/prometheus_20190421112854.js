@@ -1,9 +1,9 @@
 import { useRef } from 'react'
 import Head from 'next/head';
+import { faJs } from '@fortawesome/free-brands-svg-icons';
 import DocPage from '../../components/DocPage'
 import DocSection from '../../components/DocSection'
 import PrometheusIcon from '../../components/PrometheusIcon'
-import Code from '../../components/Code'
 
 export default function Vision() {
   const toc =
@@ -17,16 +17,15 @@ export default function Vision() {
       <DocSection {...toc[0]}>
         <h2 className="section-title">Prometheus</h2>
         <p>
-          Logary supports Prometheus. Reference <span className="_code"> Logary.Prometheus </span> and create metrics:
+          The first step is to install the Logary package from npm.
         </p>
-        <p>TBD</p>
-        <Code language="fsharp" value={
-              preval`
-              const fs = require('fs')
-              const val = fs.readFileSync(__dirname + '/../../../examples/Prometheus/Doc1.fs', 'utf8')
-              module.exports = val
-              `
-            } />
+        <p>
+          <code>npm install --save logary</code>
+        </p>
+        <p>Or you're using yarn...</p>
+        <p>
+          <code>yarn add logary</code>
+        </p>
       </DocSection>
     </DocPage>
   )
