@@ -42,6 +42,7 @@ export default function JSQuickstart() {
         <p>You can spawn Rutta server-side as a docker container, to ingest logs:</p>
         <span className="_code">$ docker run -p 10001:10001 --rm -it haaf/rutta router --listener http 0.0.0.0:10001 json --target console://./</span>
         <p>You can choose between the different targets when forwarding the logs (see the main logary repo)</p>
+        <p>For details about the object model that you use to log, see </p>
       </DocSection>
     </DocPage>
   )

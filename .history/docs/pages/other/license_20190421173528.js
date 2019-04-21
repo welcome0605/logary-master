@@ -91,35 +91,6 @@ export default function License() {
         <p>The commercial license must be purchased in order to apply to the Software.</p>
           <h4>1.1 Initial purchase</h4>
           <p>The price in EUR (€) is calculated as follows:</p>
-          <span className="_code">price = C * 100 + D * 20 + 250</span>
-          <p>where</p>
-          <ul>
-            <li>C: # of cores in total production deployment</li>
-            <li>D: # of developers owning/working on the software</li>
-          </ul>
-          <p>You can load- and stress-test in a test-/staging-environment, for free, as long as that environment never serves production traffic.</p>
-          <p>If you change the number of cores you deploy on, or number of developers, please order a delta to your license.</p>
-
-          <h4>1.2 Subsequent years</h4>
-          <p>You must renew the license(s) yearly, at a 60% discount of the initial price that a new customer would pay at the instant when the license expires.</p>
-          <p>So for example, if you have 5 different services, each with access to 10 cores, and your team is 5 backend and 2 frontend developers, you pay 10 * 100 + 5 * 20 + 250 = €1,350 euro the first year, and €540 every subsequent year if the number of cores used in production and the number of developers "owning"/building the software is the same.</p>
-
-          <h4>1.3 Means of Payment</h4>
-          <p>You may choose to pay via invoice (SWIFT/IBAN bank transfer, or via a lightning network invoice), or through credit/debit card.</p>
-
-          <h4>1.4 Terms of Payment</h4>
-          <p></p>
-          <h5>1.4.1 Invoice</h5>
-          <p>The invoice must be paid within 10 days of its issuance.</p>
-          <h5>1.4.2 Credit/Debit Card</h5>
-          <p>Credit/Debit card payments are immediate.</p>
-        
-        <h3>2. Allowances</h3>
-          <p>By purchasing this license you may make changes to the Software without open sourcing or sending a pull request with those changes. Furthermore, you are free to link the Software to your own software, under the terms of this license.</p>
-        <h3>3. Refunds</h3>
-          <p>Unless expressly agreed in writing, before the purchase, there are no refunds, to the extent of the applicable law. If you are purchasing an individual, you have 14 days right to withdrawal according to <a href="https://www.konsumenteuropa.se/en/topics/e-commerce/E-commerce-within-the-EU/right-of-withdrawal-within-the-eu/">Swedish law.</a> </p>
-        <h3>4. Order a license</h3>
-          <p>Send an e-mail to <span className="_code"> henrik@haf.se </span> with the number of cores and developers you'd like to purchase a license for.</p>
       </DocSection>
     </DocPage>
   )

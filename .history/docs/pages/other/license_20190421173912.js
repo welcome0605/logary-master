@@ -108,7 +108,6 @@ export default function License() {
           <p>You may choose to pay via invoice (SWIFT/IBAN bank transfer, or via a lightning network invoice), or through credit/debit card.</p>
 
           <h4>1.4 Terms of Payment</h4>
-          <p></p>
           <h5>1.4.1 Invoice</h5>
           <p>The invoice must be paid within 10 days of its issuance.</p>
           <h5>1.4.2 Credit/Debit Card</h5>
@@ -117,9 +116,9 @@ export default function License() {
         <h3>2. Allowances</h3>
           <p>By purchasing this license you may make changes to the Software without open sourcing or sending a pull request with those changes. Furthermore, you are free to link the Software to your own software, under the terms of this license.</p>
         <h3>3. Refunds</h3>
-          <p>Unless expressly agreed in writing, before the purchase, there are no refunds, to the extent of the applicable law. If you are purchasing an individual, you have 14 days right to withdrawal according to <a href="https://www.konsumenteuropa.se/en/topics/e-commerce/E-commerce-within-the-EU/right-of-withdrawal-within-the-eu/">Swedish law.</a> </p>
+          <p>Unless expressly agreed in writing, before the purchase, there are no refunds, to the extent of the applicable law. If you are purchasing an individual, you have 14 days right to withdrawal according to Swedish law.</p>
         <h3>4. Order a license</h3>
-          <p>Send an e-mail to <span className="_code"> henrik@haf.se </span> with the number of cores and developers you'd like to purchase a license for.</p>
+          <p>Send an e-mail to <span className="_code"></span> henrik@haf.se with the number of cores and developers you'd like to purchase a license for.</p>
       </DocSection>
     </DocPage>
   )

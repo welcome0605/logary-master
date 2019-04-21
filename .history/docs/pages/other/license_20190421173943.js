@@ -108,7 +108,6 @@ export default function License() {
           <p>You may choose to pay via invoice (SWIFT/IBAN bank transfer, or via a lightning network invoice), or through credit/debit card.</p>
 
           <h4>1.4 Terms of Payment</h4>
-          <p></p>
           <h5>1.4.1 Invoice</h5>
           <p>The invoice must be paid within 10 days of its issuance.</p>
           <h5>1.4.2 Credit/Debit Card</h5>

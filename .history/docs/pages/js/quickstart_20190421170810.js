@@ -32,16 +32,13 @@ export default function JSQuickstart() {
       </DocSection>
       <DocSection {...toc[1]}>
         <h2 className="section-title">How to use</h2>
-        <Code language="js" value={
+        <Code language="csharp" value={
               preval`
               const fs = require('fs')
               const val = fs.readFileSync(__dirname + '/../../../examples/JS_QuickStart/Doc1.fs', 'utf8')
               module.exports = val
               `
             } />
-        <p>You can spawn Rutta server-side as a docker container, to ingest logs:</p>
-        <span className="_code">$ docker run -p 10001:10001 --rm -it haaf/rutta router --listener http 0.0.0.0:10001 json --target console://./</span>
-        <p>You can choose between the different targets when forwarding the logs (see the main logary repo)</p>
       </DocSection>
     </DocPage>
   )
